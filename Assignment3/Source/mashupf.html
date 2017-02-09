@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="jquery-3.1.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css" />
+
+    <title>APIMashup</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        html {
+            height: 100%;
+
+        }
+        body {
+            height: inherit;
+            overflow: hidden;
+        }
+        h1, p {
+            font-family: sans-serif;
+            text-align: left;
+        }
+        div p {
+            padding: 20px;
+            background-color: rgba(0,0,0,0.2);
+        }
+        div.sample {
+            overflow: auto;
+            position: absolute;
+            bottom:220px;
+            right: inherit;
+            left: inherit;
+        }
+        div.test{
+            overflow: auto;
+            position: absolute;
+            bottom:30px;
+            height:200px;
+            right: inherit;
+            left: inherit;
+        }
+        div.table{
+            overflow: auto;
+            position: absolute;
+            bottom:-10px;
+            right: inherit;
+            left: inherit;
+        }
+        button {
+            background-color:#ff6500;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 2px;
+            margin-left: 0px;
+            cursor: pointer;
+            border: 0px solid #a1a1a1;
+            border-radius:50px;
+            width: 200px;
+            font-weight: bold;
+        }
+        @media all and (max-height: 410px) {
+            div {
+                position: static;
+            }
+        }
+        .phrase {
+            font-weight: bold;
+        }
+        .output {
+            font-style: italic;
+        }
+        footer{
+            padding-top:80%;
+        }
+    </style>
+</head>
+
+
+<nav class="navbar navbar-default navbar-custom">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand boldd" href="index.html">Mashup</a>
+        </div>
+
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="menu-text">
+                <a>About</a>
+            </li>
+            <li class="menu-text">
+                <a href="login.html">Login</a>
+            </li>
+            <li class="menu-text">
+                <a href="register1.html">Register</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+    <!-- /.container-fluid -->
+</nav>
+<body data-ng-app="Sentiment">
+<h1>Check you emotion here!</h1>
+<p>Text gets recognized below </p>
+
+<button>Start here</button>
+
+<div class="sample">
+    <p class="phrase">Phrase...</p>
+    <p class="result">Right or wrong??</p>
+    <p class="output">Diagnostic messages</p>
+</div>
+
+
+<div class="test" data-ng-controller="analyze">
+    <button class="btn btn-primary" data-ng-click="sentimentfinder()">Get Sentiment Analysis</button>
+    <div id="list" style="display: none;">
+        <div class="table">
+            <p ng-model="SentimentFU">
+                <b> Sentiment -> {{SentimentFU.sentiment}}<br><br></b>
+                <b> Score -> {{SentimentFU.score}}<br></b>B>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+    var phrases = [
+
+        'I am hard working',
+        'Hello',
+        'I am in a good mood',
+        'I like to eat chicken',
+        'The kid is adorable',
+        'Life is great',
+        'I am sick',
+        'I am missing home',
+        'I like travelling'
+
+    ]
+
+    var phrasePara = document.querySelector('.phrase');
+    var resultPara = document.querySelector('.result');
+    var diagnosticPara = document.querySelector('.output');
+
+    var testBtn = document.querySelector('button');
+
+    function randomPhrase() {
+        var number = Math.floor(Math.random() * phrases.length);
+        return number;
+    }
+
+    function testSpeech() {
+        testBtn.disabled = true;
+        testBtn.textContent = 'Test in progress';
+
+        var phrase = phrases[randomPhrase()];
+        phrasePara.textContent = phrase;
+        resultPara.textContent = 'Right or wrong?';
+        resultPara.style.background = 'rgba(0,0,0,0.2)';
+        diagnosticPara.textContent = '...diagnostic messages';
+
+        var grammar = '#JSGF V1.0; grammar phrase; public <phrase> = ' + phrase +';';
+        var recognition = new SpeechRecognition();
+        var speechRecognitionList = new SpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        recognition.start();
+
+        recognition.onresult = function(event) {
+
+            var speechResult = event.results[0][0].transcript;
+            diagnosticPara.textContent = 'Speech received: ' + speechResult + '.';
+            if(speechResult === phrase) {
+                resultPara.textContent = 'I heard the correct phrase!';
+                resultPara.style.background = 'green';
+            } else {
+                resultPara.textContent = 'That didn\'t sound right.';
+                resultPara.style.background = 'black';
+            }
+
+            console.log('Confidence: ' + event.results[0][0].confidence);
+        }
+
+        recognition.onspeechend = function() {
+            recognition.stop();
+            testBtn.disabled = false;
+            testBtn.textContent = 'Start new test';
+        }
+
+        recognition.onerror = function(event) {
+            testBtn.disabled = false;
+            testBtn.textContent = 'Start new test';
+            diagnosticPara.textContent = 'Error occurred in recognition: ' + event.error;
+        }
+
+    }
+
+    testBtn.addEventListener('click', testSpeech);
+
+    var app=angular.module("Sentiment",[]);
+    app.controller("analyze",function ($scope,$http) {
+        $scope.sentimentfinder=function () {
+            var text1=$scope.findSentimentF;
+            var texts=$http.get("http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment?apikey=01d04b63837dc950966f8e775b838ffafadcae3c&outputMode=json&text=" +diagnosticPara.textContent )
+            texts.success(function (response) {
+
+                console.log(response);
+                $scope.SentimentFU={"sentiment":response.docSentiment.type,"score":response.docSentiment.score};
+                document.getElementById('list').style.display= 'block';
+            });
+
+        }
+
+    });
+</script>
+</body>
+</html>

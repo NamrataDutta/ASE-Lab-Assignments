@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registration</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/myfil.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+<script>
+function registration()
+{
+    if (document.getElementById('fname').value.length>0 && document.getElementById('lname').value.length>0))
+{
+   
+    localstorage.setitem('email', (document.getElementById('email').value));
+localstorage.setitem('password', (document.getElementById('password').value));
+window.location.href='login.html';
+}
+}
+
+</script>
+
+
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand boldd" href="index.html">Get Your Way</a>
+            </div>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                   
+                    <li class="menu-text">
+                        <a>About</a>
+                    </li>
+                    <li class="menu-text">
+                        <a href="login.html">Login</a>
+                    </li>
+                    <li class="menu-text">
+                        <a href="register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+  
+    <div class="register-heading">
+        Fill your details below to Register
+    </div>
+
+    <div class='input-cont'>
+        <form>
+            <div class='form-item'>
+                <input type="FirstName" class="form-text" placeholder="FirstName" id="fname" required >
+            </div>
+
+            <div class='form-item'>
+                <input type="LastName" class="form-text" placeholder="LastName" id="lname" required >
+            </div>
+            <div class='form-item'>
+                <input type="Email Address" class="form-text" placeholder="Email" id="email" required >
+            </div>
+
+
+               <div class='form-item marginn'>
+                    <label>Gender:</label>
+                    <input type="radio" name='gender' value='Female' >
+                    <span>Female</span>
+                    <input type="radio" name='gender' value='Male' >
+                    <span>Male</span>
+                </div>    
+                   <div class='form-item'>
+                       <input type="Password" class="form-text" placeholder="SetPassword" id="spass" required >
+                   </div>
+                   <div class='form-item'>
+                       <input type="Password" class="form-text" placeholder="ConfirmPassword" id="cpass" required >
+                   </div>
+                   
+                    <div>
+                   <button class="button-register" onclick="alert('You are done!')">Register</button>
+
+                   </div>
+
+            </form>
+             
+        </div>
+  
+
+</body>
+
+</html>

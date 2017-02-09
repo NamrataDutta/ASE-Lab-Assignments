@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="neo">
+
+<head>
+    
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTm0dKPLPyl_IZ6CLKzsW7m56tX5DxaQg&libraries=places"></script>
+    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.17"></script>
+    <script data-require="lodash-underscore@*" data-semver="2.4.1" src="https://rawgit.com/lodash/lodash/2.4.1/dist/lodash.underscore.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+    <script data-require="angular-google-maps@*" data-semver="1.1.4" src="https://rawgit.com/nlaplante/angular-google-maps/1.1.4/dist/angular-google-maps.min.js"></script>
+    <script src="//connect.facebook.net/en_US/sdk.js"></script>
+    <script data-require"angular.js@1.1.5" data-semver="1.1.5" src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="879960789445-ki1s7202qitv1qiu7mkc4lct0lvf71j2.apps.googleusercontent.com">
+    <script src="app.js"></script>
+
+    <title>Login Screen</title>
+
+
+</head>
+<body ng-controller="MainCtrl">
+
+<nav class="navbar navbar-default navbar-custom">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand boldd" href="index.html">Mashup</a>
+        </div>
+
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="menu-text">
+                <a>About</a>
+            </li>
+            <li class="menu-text">
+                <a href="login.html">Login</a>
+            </li>
+            <li class="menu-text">
+                <a href="register1.html">Register</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+    <!-- /.container-fluid -->
+</nav>
+<div class='form-cont'>
+    <div class="marginn">
+        WELCOME! Start Mashup
+    </div>
+
+    <div class="fontt">
+        Please login to continue
+    </div>
+    <div class='input-cont'>
+
+        <form>
+            <div class='form-item'>
+                <input type="email" class="form-text" placeholder="Email Address" id="email" required >
+            </div>
+
+            <div class='form-item'>
+                <input type="password" class="form-text" placeholder="Password" id="password" required >
+            </div>
+            <nav>
+                <div class='form-item'>
+                    <a class="button" href="original2.html">Sign In</a>
+
+                </div>
+            </nav>
+
+
+
+            <div class="form-item forgot">
+                <a >Forgot Password?</a>
+            </div>
+
+
+            <div class="form-item ">
+                <p>Didn't Register yet? </p>
+                <a class="button-register" href="register1.html">Register</a>
+            </div>
+        </form>
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <button type="button" class="btn btn-primary btn-large"   data-ng-click="IntentLogin()">Login with Facebook</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+<!--data-ng-show="!logged" data-ng-disabled="!facebookReady"-->
