@@ -38,6 +38,23 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+butLogin.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (etUsername.getText().toString().equals("admin") &&
+                                etSet.getText().toString().equals("admin")) {
+                            Toast.makeText(LoginActivity.this, "Success",
+                                    Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(LoginActivity.this, MapsActivity.class);
+                            LoginActivity.this.startActivity(i);
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Username and Password incorrect",
+                                    Toast.LENGTH_SHORT).show();
 
+
+                        }
+                    }
+                });
     }
 }
