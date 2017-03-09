@@ -13,6 +13,7 @@ describe('myAppController', function(){
             var pass = $scope.password();
             expect(user).toEqual('namrata');
             expect(pass).toEqual('namrata');
+          expect(user).toEqual('1234');
             
                 })
         });
