@@ -1,0 +1,79 @@
+/* Empty. Add your own CSS if you like */
+img{
+    -webkit-user-drag: none;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100px !important;
+    max-height: 100px !important;
+}
+#speechImage{
+    -webkit-user-drag: none;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 150px !important;
+    max-height: 200px !important;  
+}
+.button.button-balanced {
+    border-color: transparent;
+    background-color: #A569BD;
+    color: #fff;
+    width:100px;
+    text-align: center;
+    text-decoration: none;
+    display: center;
+    margin:0 auto;
+    margin-right:700px;
+}
+.button.button-balanced:hover{
+     background-color: #EBDEF0;
+     
+}
+.balanced{
+    float:center;
+    font-size:25px;
+    margin-left: 720px;
+       
+    
+}
+.register{
+    color:#000;
+    float:center;
+    font-size:25px;
+    margin-left: 750px;
+}
+#result{
+    -webkit-user-drag: none;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 200px !important;
+    max-height: 200px !important; 
+}
+#scan{
+    background-image:url('../img/screen.png');
+     background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#x{
+    color:red;
+}
+.error {
+    color: red;
+    font-weight: bold;
+}
+.success{
+    color:green;
+    font-weight: bold;
+}
+#facebook{
+    background:#648abf;
+}
+#gmail{
+    background:#fd3325;
+}
+.pane{
+    background-image: url('http://content.wallpapers-room.com/presentationBig/Through_Space_Alternative_by_g-f.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
