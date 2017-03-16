@@ -1,0 +1,64 @@
+/* Empty. Add your own CSS if you like */
+
+img{
+    -webkit-user-drag: none;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100px !important;
+    max-height: 100px !important;
+}
+
+.button.button-balanced {
+    border-color: transparent;
+    background-color: #A569BD;
+    color: #fff;
+    width:100px;
+    text-align: center;
+    text-decoration: none;
+    display: center;
+    margin-top: 20px
+    margin-right:700px;
+}
+.button.button-balanced:hover{
+     background-color: #EBDEF0;
+     
+}
+.balanced{
+    float:center;
+    font-size:25px;
+    margin-left: 720px;
+       
+    
+}
+.register{
+    color:#000;
+    float:center;
+    font-size:25px;
+    margin-left: 800px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+.success{
+    color:green;
+    font-weight: bold;
+}
+
+.pane{
+    background-image: url('http://content.wallpapers-room.com/presentationBig/Through_Space_Alternative_by_g-f.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content{
+    color:cornsilk;
+    font-family: cursive;
+  margin-top: 20px;
+    font-size: 25px;
+  
+    
+    
+}
+
+/* Empty. Add your own CSS if you like */
