@@ -1,0 +1,40 @@
+.h1{
+    font-family: "Comic Sans MS";
+    background-image: url("http://wallpapercave.com/wp/pFtzuPn.jpg");
+    background-size: cover;
+    color: white;
+    font-size: larger;
+
+}
+.container{
+    background-color: antiquewhite;
+    color: black;
+}
+.cl{
+    background-color:#F1948A ;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: 0px solid #a1a1a1;
+    border-radius:50px;
+    width: 200px;
+    font-weight: bold;
+}
+
+.text1{
+    color: #000;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    height: 40px;
+    width: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    line-height: 18px;
+    font-size: 18px;
+}
